@@ -5,4 +5,4 @@
 I'll try to do all the advent of code of this year since I never try to...  
 Website : https://adventofcode.com/2023
 
-Day 1: Trebuchet?! : https://github.com/Nyuwb/adventofcode_2023/tree/main/1
+- [Day 1: Trebuchet?!](https://github.com/Nyuwb/adventofcode_2023/tree/main/1)
