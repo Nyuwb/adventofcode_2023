@@ -14,7 +14,7 @@ const digitReplace = {
 };
 
 // Get the calibration values and calculate the sum
-function calibrationSum(data, iteration = null)
+function calibrationSum(data)
 {
     let calibrationList = [];
     [...data.matchAll(regexDigit)].forEach(digit => {
@@ -23,7 +23,6 @@ function calibrationSum(data, iteration = null)
         if (digit[3] != undefined) {
             calibration = digit[3] + digit[3];
         }
-		if (iteration != null) console.log(digit[0], calibration);
         calibrationList.push(Number(calibration));
     });
     return calibrationList.reduce((sum, value) => sum + value);
@@ -44,15 +43,15 @@ fs.readFile('data.txt', 'utf8', function(err, data) {
     // Replacing words with numbers but keeping the word because of one rule
 	// that is not mentionned : twone is not 2ne but 21... the letters in common
 	// in two words need to be used for each word !
-	Object.keys(digitReplace).forEach(word => {
+    Object.keys(digitReplace).forEach(word => {
         data = data.replace(
-			new RegExp(word, 'g'), 
-			word + digitReplace[word] + word // one => one1one
-		);
+            new RegExp(word, 'g'), 
+            word + digitReplace[word] + word // one => one1one
+        );
     });
     console.log(
         '[SECOND] The sum of all the calibration values is :',
-        calibrationSum(data, 'a')
+        calibrationSum(data)
     );
 });
 
