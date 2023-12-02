@@ -31,6 +31,7 @@ Consider your entire calibration document. What is the sum of all of the calibra
 
 <details>
 <summary>Click to toggle the answer</summary>
+
 `55447`
 </details>
 
@@ -56,5 +57,6 @@ What is the sum of all of the calibration values?
 
 <details>
 <summary>Click to toggle the answer</summary>
+
 `54706`
 </details>
