@@ -6,3 +6,4 @@ I'll try to complete the advent of code this year since I never tried to...
 Website : https://adventofcode.com/2023
 
 - [Day 1: Trebuchet?!](https://github.com/Nyuwb/adventofcode_2023/tree/main/1) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="16px"/>
+- [Day 2: Cube Conundrum](https://github.com/Nyuwb/adventofcode_2023/tree/main/2) <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="16px"/>
