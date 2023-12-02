@@ -66,5 +66,5 @@ For each game, find the minimum set of cubes that must have been present. What i
 <details>
 <summary>Click to toggle the answer</summary>
 
-`TODO`
+`63307`
 </details>

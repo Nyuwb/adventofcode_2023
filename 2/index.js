@@ -8,7 +8,7 @@ const cubeLimit = {
 };
 
 /**
- * Returns a list of each game details (min / max of each color).
+ * Returns a list of each game details (max of each color).
  * 
  * @param string data 
  * @returns array
@@ -20,7 +20,7 @@ function getGameListDetails(data)
         let content = match[2];
 		let game = {
 			id: parseInt(match[1]),
-			colors: {}
+			colors: {} // Store the max value for each color
 		};
         // Checking the content for each color
         Object.keys(cubeLimit).map(color => {
@@ -28,16 +28,10 @@ function getGameListDetails(data)
             [...content.matchAll(regexColor)].forEach(value => {
 				let colorValue = parseInt(value[1]);
 				if (game.colors[color] == undefined) {
-					game.colors[color] = {
-						min: colorValue,
-						max: colorValue
-					};
+					game.colors[color] = colorValue;
 				}
-				if (game.colors[color].min > colorValue) {
-					game.colors[color].min = colorValue;
-				}
-				if (game.colors[color].max < colorValue) {
-					game.colors[color].max = colorValue;
+				if (game.colors[color] < colorValue) {
+					game.colors[color] = colorValue;
 				}
 			});
 		});
@@ -53,12 +47,23 @@ fs.readFile('data.txt', 'utf8', function(err, data) {
     let sum = 0;
 	let gameData = getGameListDetails(data);
 	gameData.forEach(game => {
-		if (game.colors.red.max <= cubeLimit.red
-			&& game.colors.blue.max <= cubeLimit.blue
-			&& game.colors.green.max <= cubeLimit.green
+		if (game.colors.red <= cubeLimit.red
+			&& game.colors.blue <= cubeLimit.blue
+			&& game.colors.green <= cubeLimit.green
 		) {
 			sum += game.id;
 		}
 	});
     console.log('[FIRST] The sum of the IDs of the possible games is', sum);
+});
+
+// Part two
+fs.readFile('data.txt', 'utf8', function(err, data) {
+    if (err) throw err;
+    let sum = 0;
+	let gameData = getGameListDetails(data);
+	gameData.forEach(game => {
+		sum += game.colors.red * game.colors.blue * game.colors.green;
+	});
+    console.log('[SECOND] The sum of the power of the sets is', sum);
 });
